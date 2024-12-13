@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Media File Versioning\n"
+"POT-Creation-Date: 2024-12-12 23:51-0500\n"
+"PO-Revision-Date: 2024-12-12 23:52-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: media-file-versioning.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: includes/plugin-update-checker/vendor\n"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:56
+msgid "View details"
+msgstr "Ver Detalles"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:79
+#, php-format
+msgid "More information about %s"
+msgstr "Más información sobre %s"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:130
+msgid "Check for updates"
+msgstr "Checar por Actualizaciones"
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:217
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr "El plugin %s está actualizado."
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:219
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr "Una nueva versión del plugin %s está disponible."
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:221
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr "No se pudo determinar si las actualizaciones están disponibles para %s."
+
+#: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:227
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr "Status de actualización desconocido \"%s\""
+
+#: includes/plugin-update-checker/Puc/v5p4/Vcs/PluginUpdateChecker.php:113
+msgid "There is no changelog available."
+msgstr "No está disponible la lista de cambios."
+
+#: media-file-versioning.php:41
+#, fuzzy
+msgid "Media Versioning"
+msgstr "Versiones de medios"
+
+#: media-file-versioning.php:71
+#, fuzzy
+msgid "Upload a new version or view previous versions below:"
+msgstr "Sube una nueva versión o mira las versiones anteriores a continuación:"
+
+#: media-file-versioning.php:76
+#, fuzzy
+msgid "Upload New Version"
+msgstr "Subir nueva versión"
+
+#: media-file-versioning.php:84 media-file-versioning.php:286
+msgid "Current Version"
+msgstr "Versión Actual"
+
+#: media-file-versioning.php:98 media-file-versioning.php:301
+#, fuzzy
+msgid "Previous Versions"
+msgstr "Versiones anteriores"
+
+#: media-file-versioning.php:128
+msgid "Permission denied."
+msgstr "Permiso denegado."
+
+#: media-file-versioning.php:136
+msgid "File upload error."
+msgstr "Error de carga de archivos."
+
+#: media-file-versioning.php:174
+#, fuzzy
+msgid "Previous Version"
+msgstr "Versión anterior"
+
+#: media-file-versioning.php:268
+#, fuzzy
+msgid "Invalid or missing media ID."
+msgstr "ID de medio no válido o faltante."
+
+#: media-file-versioning.php:296
+#, fuzzy
+msgid "No current version available."
+msgstr "No hay ninguna versión actual disponible"
+
+#: media-file-versioning.php:316
+#, fuzzy
+msgid "No previous versions available."
+msgstr "No hay versiones anteriores disponibles."
+
+#. Plugin Name of the plugin/theme
+#, fuzzy
+msgid "Media File Versioning"
+msgstr "Versiones de archivos multimedia"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/robertdevore/media-file-versioning/"
+msgstr "https://github.com/robertdevore/media-file-versioning/"
+
+#. Description of the plugin/theme
+msgid "Track and manage versions of media files in the WordPress media library."
+msgstr "Realice un seguimiento y administre versiones de archivos multimedia en la biblioteca multimedia de WordPress."
+
+#. Author of the plugin/theme
+msgid "Robert DeVore"
+msgstr "Robert DeVore"
+
+#. Author URI of the plugin/theme
+msgid "https://robertdevore.com/"
+msgstr "https://robertdevore.com/"
