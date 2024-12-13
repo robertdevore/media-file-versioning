@@ -31,7 +31,7 @@ define( 'MFV_VERSION', '1.0.0' );
 
 /**
  * Add a custom meta box for versioning in the media library.
- * 
+ *
  * @since  1.0.0
  * @return void
  */
@@ -50,7 +50,7 @@ add_action( 'add_meta_boxes', 'media_versioning_add_meta_box' );
  * Meta box callback to display the versioning UI.
  *
  * @param WP_Post $post The current post object.
- * 
+ *
  * @since  1.0.0
  * @return void
  */
@@ -58,7 +58,7 @@ add_action( 'add_meta_boxes', 'media_versioning_add_meta_box' );
  * Meta box callback to display the versioning UI.
  *
  * @param WP_Post $post The current post object.
- * 
+ *
  * @since  1.0.0
  * @return void
  */
@@ -116,7 +116,7 @@ function media_versioning_meta_box_callback( $post ) {
 
 /**
  * Handle file uploads and save versions.
- * 
+ *
  * @since  1.0.0
  * @return void
  */
@@ -151,6 +151,14 @@ function media_versioning_upload_handler() {
             $path_info['filename'],
             time(),
             $path_info['extension']
+        );
+
+        $versioned_filename = apply_filters(
+          'media_file_versioning_versioned_filename',
+          $versioned_filename,
+          $current_file_path,
+          $path_info,
+          $attachment_id
         );
 
         rename( $current_file_path, $versioned_filename );
@@ -203,7 +211,7 @@ add_action( 'wp_ajax_media_versioning_upload', 'media_versioning_upload_handler'
  * Enqueue JavaScript for the admin UI.
  *
  * @param string $hook The current admin page hook.
- * 
+ *
  * @since  1.0.0
  * @return void
  */
