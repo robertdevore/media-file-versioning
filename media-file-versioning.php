@@ -63,6 +63,7 @@ add_action( 'add_meta_boxes', 'media_versioning_add_meta_box' );
  * @return void
  */
 function media_versioning_meta_box_callback( $post ) {
+    $date_time_format  = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
     $versions          = get_post_meta( $post->ID, '_media_versions', true ) ?: [];
     $current_url       = wp_get_attachment_url( $post->ID );
     $current_file_path = get_attached_file( $post->ID );
@@ -85,7 +86,7 @@ function media_versioning_meta_box_callback( $post ) {
         '<a href="%s" target="_blank">%s</a><br />(%s)',
         esc_url( $current_url ),
         esc_html( basename( $current_url ) ),
-        esc_html( wp_date( 'Y-m-d g:i:s A', filemtime( $current_file_path ) ) )
+        esc_html( wp_date( $date_time_format, filemtime( $current_file_path ) ) )
     );
     echo '</li>';
 
@@ -102,7 +103,7 @@ function media_versioning_meta_box_callback( $post ) {
                 '<a href="%s" target="_blank">%s</a><br />(%s)',
                 esc_url( $version['url'] ),
                 esc_html( basename( $version['url'] ) ),
-                esc_html( wp_date( 'Y-m-d g:i:s A', $version['time'] ) )
+                esc_html( wp_date( $date_time_format, $version['time'] ) )
             );
             echo '</li>';
         }
@@ -129,6 +130,7 @@ function media_versioning_upload_handler() {
 
     $file = $_FILES['file'];
     $attachment_id = isset( $_POST['attachment_id'] ) ? intval( $_POST['attachment_id'] ) : 0;
+    $date_time_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 
     if ( $file['error'] !== UPLOAD_ERR_OK ) {
         wp_send_json_error( [ 'message' => esc_html__( 'File upload error.', 'media-file-versioning' ) ] );
@@ -190,7 +192,8 @@ function media_versioning_upload_handler() {
     $versions = array_reverse( $versions );
     $versions = array_map(
         function ( $version ) {
-            $version['time_formatted'] = wp_date( 'Y-m-d g:i:s A', $version['time'] );
+            $date_time_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+            $version['time_formatted'] = wp_date( $date_time_format, $version['time'] );
             return $version;
         },
         $versions
@@ -200,7 +203,7 @@ function media_versioning_upload_handler() {
         'current_file' => [
             'url'  => wp_get_attachment_url( $attachment_id ),
             'name' => basename( wp_get_attachment_url( $attachment_id ) ),
-            'time' => wp_date( 'Y-m-d g:i:s A', filemtime( get_attached_file( $attachment_id ) ) ),
+            'time' => wp_date( $date_time_format, filemtime( get_attached_file( $attachment_id ) ) ),
         ],
         'versions' => $versions,
     ] );
@@ -251,6 +254,8 @@ add_action( 'admin_enqueue_scripts', 'media_versioning_enqueue_scripts' );
  * @return string HTML output of the versions list.
  */
 function mfv_shortcode_handler( $atts ) {
+    $date_time_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+
     // Extract shortcode attributes.
     $atts = shortcode_atts( [
         'id' => 0,
@@ -285,7 +290,7 @@ function mfv_shortcode_handler( $atts ) {
             '<p><a href="%s" class="mfv-link current" target="_blank">%s</a> <span class="mfv-date">(%s)</span></p>',
             esc_url( $current_url ),
             esc_html( basename( $current_url ) ),
-            esc_html( wp_date( 'Y-m-d g:i:s A', filemtime( $current_file_path ) ) )
+            esc_html( wp_date( $date_time_format, filemtime( $current_file_path ) ) )
         );
     } else {
         echo '<p>' . esc_html__( 'No current version available.', 'media-file-versioning' ) . '</p>';
@@ -302,7 +307,7 @@ function mfv_shortcode_handler( $atts ) {
                 '<a href="%s" class="mfv-link previous" target="_blank">%s</a> <span class="mfv-date">(%s)</span>',
                 esc_url( $version['url'] ),
                 esc_html( basename( $version['url'] ) ),
-                esc_html( wp_date( 'Y-m-d g:i:s A', $version['time'] ) )
+                esc_html( wp_date( $date_time_format, $version['time'] ) )
             );
             echo '</li>';
         }
