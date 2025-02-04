@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Media File Versioning\n"
-"POT-Creation-Date: 2024-12-12 23:51-0500\n"
-"PO-Revision-Date: 2024-12-12 23:51-0500\n"
+"POT-Creation-Date: 2025-02-03 20:57-0500\n"
+"PO-Revision-Date: 2025-02-03 20:57-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: includes/plugin-update-checker/vendor\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
 
 #: includes/plugin-update-checker/Puc/v5p4/Plugin/Ui.php:56
 msgid "View details"
@@ -62,47 +63,47 @@ msgstr ""
 msgid "There is no changelog available."
 msgstr ""
 
-#: media-file-versioning.php:41
+#: media-file-versioning.php:63
 msgid "Media Versioning"
 msgstr ""
 
-#: media-file-versioning.php:71
+#: media-file-versioning.php:93
 msgid "Upload a new version or view previous versions below:"
 msgstr ""
 
-#: media-file-versioning.php:76
+#: media-file-versioning.php:98
 msgid "Upload New Version"
 msgstr ""
 
-#: media-file-versioning.php:84 media-file-versioning.php:286
+#: media-file-versioning.php:106 media-file-versioning.php:308
 msgid "Current Version"
 msgstr ""
 
-#: media-file-versioning.php:98 media-file-versioning.php:301
+#: media-file-versioning.php:120 media-file-versioning.php:323
 msgid "Previous Versions"
 msgstr ""
 
-#: media-file-versioning.php:128
+#: media-file-versioning.php:150
 msgid "Permission denied."
 msgstr ""
 
-#: media-file-versioning.php:136
+#: media-file-versioning.php:158
 msgid "File upload error."
 msgstr ""
 
-#: media-file-versioning.php:174
+#: media-file-versioning.php:196
 msgid "Previous Version"
 msgstr ""
 
-#: media-file-versioning.php:268
+#: media-file-versioning.php:290
 msgid "Invalid or missing media ID."
 msgstr ""
 
-#: media-file-versioning.php:296
+#: media-file-versioning.php:318
 msgid "No current version available."
 msgstr ""
 
-#: media-file-versioning.php:316
+#: media-file-versioning.php:338
 msgid "No previous versions available."
 msgstr ""
 
