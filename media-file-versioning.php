@@ -44,7 +44,7 @@ new WPComPluginHandler( plugin_basename( __FILE__ ), 'https://robertdevore.com/w
  */
 function mfv_load_textdomain() {
     load_plugin_textdomain( 
-        'img-a11y',
+        'media-file-versioning',
         false,
         dirname( plugin_basename( __FILE__ ) ) . '/languages/'
     );
@@ -68,14 +68,6 @@ function media_versioning_add_meta_box() {
 }
 add_action( 'add_meta_boxes', 'media_versioning_add_meta_box' );
 
-/**
- * Meta box callback to display the versioning UI.
- *
- * @param WP_Post $post The current post object.
- *
- * @since  1.0.0
- * @return void
- */
 /**
  * Meta box callback to display the versioning UI.
  *
@@ -150,8 +142,8 @@ function media_versioning_upload_handler() {
         wp_send_json_error( [ 'message' => esc_html__( 'Permission denied.', 'media-file-versioning' ) ] );
     }
 
-    $file = $_FILES['file'];
-    $attachment_id = isset( $_POST['attachment_id'] ) ? intval( $_POST['attachment_id'] ) : 0;
+    $file             = $_FILES['file'];
+    $attachment_id    = isset( $_POST['attachment_id'] ) ? intval( $_POST['attachment_id'] ) : 0;
     $date_time_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 
     if ( $file['error'] !== UPLOAD_ERR_OK ) {
@@ -165,10 +157,10 @@ function media_versioning_upload_handler() {
     }
 
     $current_file_path = get_attached_file( $attachment_id );
-    $current_url = wp_get_attachment_url( $attachment_id );
+    $current_url       = wp_get_attachment_url( $attachment_id );
 
     if ( file_exists( $current_file_path ) ) {
-        $path_info = pathinfo( $current_file_path );
+        $path_info          = pathinfo( $current_file_path );
         $versioned_filename = sprintf(
             '%s/%s-%s.%s',
             $path_info['dirname'],
@@ -202,7 +194,7 @@ function media_versioning_upload_handler() {
     copy( $new_file_path, $current_file_path );
     update_attached_file( $attachment_id, $current_file_path );
 
-    $filetype = wp_check_filetype( $new_file_path );
+    $filetype        = wp_check_filetype( $new_file_path );
     $attachment_data = [
         'ID'             => $attachment_id,
         'post_mime_type' => $filetype['type'],
@@ -272,7 +264,8 @@ add_action( 'admin_enqueue_scripts', 'media_versioning_enqueue_scripts' );
  * Usage: [mfv id="123"]
  *
  * @param array $atts Shortcode attributes.
- * @since 1.0.0
+ * 
+ * @since  1.0.0
  * @return string HTML output of the versions list.
  */
 function mfv_shortcode_handler( $atts ) {
@@ -291,7 +284,7 @@ function mfv_shortcode_handler( $atts ) {
     }
 
     // Get the current version.
-    $current_url = wp_get_attachment_url( $attachment_id );
+    $current_url       = wp_get_attachment_url( $attachment_id );
     $current_file_path = get_attached_file( $attachment_id );
 
     // Get the previous versions.
