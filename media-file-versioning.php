@@ -11,7 +11,7 @@
  * Plugin Name: Media File Versioning
  * Plugin URI:  https://github.com/robertdevore/media-file-versioning/
  * Description: Track and manage versions of media files in the WordPress media library.
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      Robert DeVore
  * Author URI:  https://robertdevore.com/
  * License:     GPL-2.0+
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define the plugin version.
-define( 'MFV_VERSION', '1.0.1' );
+define( 'MFV_VERSION', '1.0.2' );
 
 // Check if Composer's autoloader is already registered globally.
 if ( ! class_exists( 'RobertDevore\WPComCheck\WPComPluginHandler' ) ) {
@@ -39,7 +39,7 @@ new WPComPluginHandler( plugin_basename( __FILE__ ), 'https://robertdevore.com/w
 /**
  * Load plugin text domain for translations
  * 
- * @since  1.0.1
+ * @since  1.0.2
  * @return void
  */
 function mfv_load_textdomain() {
